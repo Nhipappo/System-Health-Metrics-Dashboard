@@ -1,0 +1,55 @@
+# --- Python bytecode / кэши ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# --- Виртуальные окружения ---
+.venv/
+venv/
+ENV/
+env/
+
+# --- Пакеты и сборка ---
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# --- Кэши тестов и покрытия ---
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+
+# --- Кэши линтеров и проверки типов ---
+.mypy_cache/
+.pyre/
+.ruff_cache/
+
+# --- Jupyter Notebooks ---
+.ipynb_checkpoints/
+
+# --- IDE / редакторы кода ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- Операционные системы ---
+.DS_Store
+Thumbs.db
+
+# --- Секреты и локальные конфиги ---
+.env
+.env
+*.pem
+*.key
+config.local.*
+
+# --- Логи ---
+*.log

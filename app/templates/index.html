@@ -50,44 +50,44 @@
     <div class="container">
         <h1>🚀 {{ title }}</h1>
         <p>Статус: <span class="status">✅ Работает</span></p>
-        
+
         <div class="endpoints">
             <h2>Доступные эндпоинты:</h2>
-            
+
             <div class="endpoint">
                 <strong>GET</strong> <code>/health</code> - Проверка здоровья
             </div>
-            
+
             <div class="endpoint">
                 <strong>POST</strong> <code>/items/</code> - Создать элемент
                 <div class="methods">Body JSON: {"name": "test", "description": "описание"}</div>
             </div>
-            
+
             <div class="endpoint">
                 <strong>GET</strong> <code>/items/</code> - Получить все элементы
             </div>
-            
+
             <div class="endpoint">
                 <strong>GET</strong> <code>/items/{id}</code> - Получить элемент по ID
             </div>
-            
+
             <div class="endpoint">
                 <strong>DELETE</strong> <code>/items/{id}</code> - Удалить элемент по ID
             </div>
-            
+
             <div class="endpoint">
                 <strong>GET</strong> <code>/metrics</code> - Метрики Prometheus
             </div>
-            
+
             <div class="endpoint">
                 <strong>GET</strong> <code>/docs</code> - Swagger документация
             </div>
-            
+
             <div class="endpoint">
                 <strong>GET</strong> <code>/redoc</code> - ReDoc документация
             </div>
         </div>
-        
+
         <div class="endpoints">
             <h2>Тестирование API:</h2>
             <div class="endpoint">
@@ -96,10 +96,10 @@
                 curl -X POST "http://localhost:8000/items/" \<br>
                 -H "Content-Type: application/json" \<br>
                 -d '{"name":"Тест","description":"Описание"}'</code><br><br>
-                
+
                 <code># Получить все элементы<br>
                 curl "http://localhost:8000/items/"</code><br><br>
-                
+
                 <code># Получить элемент по ID<br>
                 curl "http://localhost:8000/items/1"</code>
             </div>

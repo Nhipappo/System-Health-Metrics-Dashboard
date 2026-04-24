@@ -1,9 +1,10 @@
 from enum import Enum
 
+
 class TaskStatus(str, Enum):
     PENDING = "pending"
     PROCESSING = "processing"
-    COMPLITED = "complited"
+    COMPLETED = "completed"
     FAILED = "failed"
 
     @property
@@ -12,7 +13,7 @@ class TaskStatus(str, Enum):
         names = {
             self.PENDING: "В обработке",
             self.PROCESSING: "В процессе",
-            self.COMPLITED: "Завершена",
-            self.FAILED: "Провалена"
+            self.COMPLETED: "Завершена",
+            self.FAILED: "Провалена",
         }
         return names[self]
