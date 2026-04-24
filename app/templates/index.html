@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .status {
+            color: green;
+            font-weight: bold;
+        }
+        .endpoints {
+            margin-top: 20px;
+        }
+        .endpoint {
+            background: #f9f9f9;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        code {
+            background: #eee;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .methods {
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 {{ title }}</h1>
+        <p>Статус: <span class="status">✅ Работает</span></p>
+        
+        <div class="endpoints">
+            <h2>Доступные эндпоинты:</h2>
+            
+            <div class="endpoint">
+                <strong>GET</strong> <code>/health</code> - Проверка здоровья
+            </div>
+            
+            <div class="endpoint">
+                <strong>POST</strong> <code>/items/</code> - Создать элемент
+                <div class="methods">Body JSON: {"name": "test", "description": "описание"}</div>
+            </div>
+            
+            <div class="endpoint">
+                <strong>GET</strong> <code>/items/</code> - Получить все элементы
+            </div>
+            
+            <div class="endpoint">
+                <strong>GET</strong> <code>/items/{id}</code> - Получить элемент по ID
+            </div>
+            
+            <div class="endpoint">
+                <strong>DELETE</strong> <code>/items/{id}</code> - Удалить элемент по ID
+            </div>
+            
+            <div class="endpoint">
+                <strong>GET</strong> <code>/metrics</code> - Метрики Prometheus
+            </div>
+            
+            <div class="endpoint">
+                <strong>GET</strong> <code>/docs</code> - Swagger документация
+            </div>
+            
+            <div class="endpoint">
+                <strong>GET</strong> <code>/redoc</code> - ReDoc документация
+            </div>
+        </div>
+        
+        <div class="endpoints">
+            <h2>Тестирование API:</h2>
+            <div class="endpoint">
+                <strong>Примеры curl команд:</strong><br>
+                <code># Создать элемент<br>
+                curl -X POST "http://localhost:8000/items/" \<br>
+                -H "Content-Type: application/json" \<br>
+                -d '{"name":"Тест","description":"Описание"}'</code><br><br>
+                
+                <code># Получить все элементы<br>
+                curl "http://localhost:8000/items/"</code><br><br>
+                
+                <code># Получить элемент по ID<br>
+                curl "http://localhost:8000/items/1"</code>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
