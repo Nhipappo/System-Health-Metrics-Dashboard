@@ -2,6 +2,7 @@ import uuid
 from typing import Any, Dict, Optional
 
 from sqlalchemy import JSON, Integer, String
+from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db.models.base import Base
@@ -12,7 +13,9 @@ from app.db.models.time_stamped_mixin import TimeStampedMixin
 class Task(Base, TimeStampedMixin):
     __tablename__ = "tasks"
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, default=uuid.uuid4)
+    id: Mapped[uuid.UUID] = mapped_column(
+        UUID(as_uuid=True), primary_key=True, default=uuid.uuid4
+    )
 
     status: Mapped[TaskStatus] = mapped_column(
         String(20), default=TaskStatus.PENDING, nullable=False, doc="Статус запроса"
@@ -31,5 +34,5 @@ class Task(Base, TimeStampedMixin):
     )
 
     error_message: Mapped[Optional[str]] = mapped_column(
-        String(1000), nullable=True, doc="Текст ошибки (при неудаче) или null"
+        String, nullable=True, doc="Текст ошибки (при неудаче) или null"
     )

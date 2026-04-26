@@ -5,17 +5,14 @@ from pathlib import Path
 from dotenv import load_dotenv
 from fastapi import FastAPI
 
-from app.api.health import router as health_router
+from app.api.routers.health import router as health_router
+from app.api.routers.tasks import router as tasks_router
 from app.db.models import Base
 from app.db.session import dispose_engine, engine
+from app.middleware import setup_cors
 
 env_path = Path(__file__).parent.parent / ".env"
 load_dotenv(dotenv_path=env_path)
-
-# Диагностика
-print(f"Ищу .env по пути: {env_path}")
-print(f"Файл существует: {env_path.exists()}")
-print(f"DATABASE_URL = {os.getenv('DATABASE_URL')}")
 
 
 @asynccontextmanager
@@ -37,8 +34,10 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+setup_cors(app=app)
 
 app.include_router(health_router)
+app.include_router(tasks_router)
 
 
 @app.get("/")
